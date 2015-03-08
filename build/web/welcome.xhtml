@@ -1,0 +1,71 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core">
+    <h:head>
+        <title>Welcome</title>
+    </h:head>
+    <h:body>
+    <h:form>
+        
+        <h3>Welcome, #{login.user.nickname}</h3>
+                
+        <h:dataTable value="#{login.user_list}" var="u" border="1">
+            <h:column>
+                <f:facet name="header">Phone</f:facet>
+                #{u.phone}
+            </h:column>
+            <h:column>
+                <f:facet name="header">nickname</f:facet>
+                #{u.nickname}
+            </h:column>
+            <h:column>
+                <f:facet name="header">email</f:facet>
+                #{u.email}
+            </h:column>
+            <h:column>
+                <f:facet name="header">pw</f:facet>
+                #{u.pw}
+            </h:column>
+            <h:column>
+                <f:facet name="header">wpw</f:facet>
+                #{u.wpw}
+            </h:column>
+            <h:column>
+                <f:facet name="header">sms_code</f:facet>
+                #{u.sms_code}
+            </h:column>
+            <h:column>
+                <f:facet name="header">imei</f:facet>
+                #{u.imei}
+            </h:column>
+            <h:column>
+                <f:facet name="header">Phone</f:facet>
+                #{u.rdate}
+            </h:column>
+            
+        </h:dataTable>
+        
+        <br/><br/>
+        To: <h:inputText value="#{login.to}" /> <br/><br/>
+        Text: <h:inputTextarea value="#{login.body_text}" /> <br/><br/>
+        <h:commandButton value="Send Message" action="#{login.sendMessage}" />
+        
+            
+        
+        <br/><br/>
+        <h:selectManyCheckbox value="#{login.phone_numbers}" border="1" layout="pageDirection" style="padding: 0;">
+            <f:selectItem itemValue="994707118199" itemLabel="Mushfiq Mammadov" />
+            <f:selectItem itemValue="994559713698" itemLabel="Leyla Aliyeva" />
+            <f:selectItem itemValue="994559186068" itemLabel="Orxan Muradov" />
+            <f:selectItem itemValue="994557351114" itemLabel="Cavid Mammadov" />
+            <f:selectItem itemValue="994703823336" itemLabel="Ceyhun Hasanov" />
+        </h:selectManyCheckbox>
+        <br/>
+
+        <h:commandButton action="#{login.showCheckedNumbers()}" value="Sechilmish nomreleri goster" /> 
+        </h:form>
+    </h:body>
+</html>
+

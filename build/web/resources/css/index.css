@@ -1,0 +1,79 @@
+/* 
+   Created on : Nov 19, 2014, 3:12:26 PM
+   Author     : MM
+*/
+
+.ui-widget{
+   font-family: "Times New Roman", Georgia, Serif !important;
+   font-size:15px !important;
+}
+.left-div{
+   position: fixed;  
+   width: 40%; 
+   height: 100%; 
+   top: 0; 
+   overflow-y: auto;
+   border-right: 2px solid #636d72;
+}
+.box-div{
+    position:   absolute;
+    height: 98%;
+    left: 45%;
+    /*top: 30px;*/
+    right: 0px;
+    margin: auto;
+    /*overflow-y: auto;*/
+}      
+.box-div table {
+    border: 1px solid #909C9B; 
+    border-radius: 5px;
+    margin: 25px;
+}
+.box-div table tr {
+    height: 70px;
+    text-align: center;
+}
+.box-div table tr td {
+    width: 70px;
+}
+.drink-list {
+    /*width: 400px;*/
+    margin: 15px;
+    margin-top: 35px;
+    border-radius: 5px;
+    border: 1px solid blue;
+}
+.drink-list tr td {
+    padding: 5px;
+}
+.left-div input{
+    width: 40px;
+    text-align: right;
+}
+.box-checkbox {
+    margin-left: 5px;
+}
+.box-text {
+    font-weight: bold; 
+    font-size: 16px; 
+    padding-right: 15px; 
+    /*margin-left: 15px;*/
+}
+.drink-list > tbody:nth-child(1) > tr:nth-child(1) > td:nth-child(1) {
+    width: 15px;
+    border-bottom: 1px solid #636d72;
+}
+.drink-list > tbody:nth-child(1) > tr:nth-child(1) > td:nth-child(2) {
+    width: 150px;
+    border-bottom: 1px solid #636d72;
+}
+.drink-list > tbody:nth-child(1) > tr:nth-child(1) > td:nth-child(3) {
+    width: 70px;
+    border-bottom: 1px solid #636d72;
+}
+i {
+    font-size: 13px;
+    margin-left: 15px;
+}
+
+

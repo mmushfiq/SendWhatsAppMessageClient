@@ -1,0 +1,101 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:ui="http://java.sun.com/jsf/facelets">
+    <h:head>
+        <title>WhatsApp API</title>
+        <h:outputStylesheet library="css" name="index.css" />
+        <h:outputStylesheet library="css" name="myButton.css" />
+        <h:outputScript target="head" library="script" name="jquery-1.11.0.min.js" />
+        <h:outputScript target="head" library="script" name="index.js" />
+    </h:head>
+    <h:body>
+    <h:form>
+        <h1>WhatsApp API ilə mesajgöndərmə</h1>
+        
+        <div>
+            <div id="signin" class="myButton">Sign in</div>
+            <div id="signup" class="myButton">Sign up</div>
+        </div>
+                
+        
+        
+        <br/><br/>
+        
+        
+        <div class="signup_window" style="border: 1px solid; width: 400px; display: none" >
+            <h:panelGrid columns="2" border="0" width="450px">
+            
+            <h:outputText value="Nickname:" />
+            <h:inputText  value="#{registration.nickname}"/>
+            
+            <h:outputText value="Phone Number:" />
+            <h:inputText  value="#{registration.phone_number}"/>
+            
+            <h:outputText value="IMEI:" />
+            <h:inputText  value="#{registration.IMEI}"/>
+            
+            <h:outputText class="btnRequest" value="" />
+            <h:commandButton class="btnRequest" value="SendSmsCode" actionListener="#{registration.startProcess('request')}" >
+                <f:ajax execute="@form" onevent="function(data) { requestProcessFunc(data, 'request') }" render="growl" />
+            </h:commandButton>
+            
+            <h:outputText class="sms_code" value="SMS code:" style="display:none" />
+            <h:inputText class="sms_code" value="#{registration.sms_code}" style="display:none" />
+            
+            <h:outputText class="btnRegister" value="" />
+            <h:commandButton class="btnRegister" value="Register" actionListener="#{registration.startProcess('register')}" style="display:none" >
+                <f:ajax execute="@form" onevent="function(data) { requestProcessFunc(data, 'register') }" render="growl wpw" />
+            </h:commandButton>
+            
+            <h:outputText class="password" value="WhatsApp Password:" style="display:none" />
+            <h:inputText id="wpw" class="password"  value="#{registration.whatsapp_password}" style="display:none" />
+            
+            <h:outputText class="password" value="Your Password:" style="display:none" />
+            <h:inputText class="password"  value="#{registration.password}" style="display:none" />
+            
+            <h:outputText class="password" value="E-mail:" style="display:none" />
+            <h:inputText class="password"  value="#{registration.email}" style="display:none" />
+            
+            <h:outputText class="password" value="" />
+            <h:commandButton class="password" value="Login" actionListener="#{registration.startProcess('login')}" style="display:none">
+                <f:ajax execute="@form" onevent="function(data) { requestProcessFunc(data, 'login') }" render="growl" />
+            </h:commandButton>
+        
+        </h:panelGrid>
+        </div>
+        
+        
+        <div class="signin_window" style="border: 1px solid; width: 400px; display: none;">
+         <h:panelGrid columns="2">
+            <h:outputText value="Nickname:" />
+            <h:inputText  value="#{login.nickname_or_number}"/>
+            
+            <h:outputText value="Password:" />
+            <h:inputText  value="#{login.password}"/>
+            
+            <h:outputText value="" />
+            <ui:remove>
+                <h:commandButton class="btnSignin" value="Sign in" actionListener="#{login.signIn()}" >
+                    <f:ajax execute="@form" onevent="function(data) { requestProcessFunc(data, 'request') }" render="growl" />
+                </h:commandButton>
+            </ui:remove>
+            
+            <h:commandButton class="btnSignin" value="Sign in" action="#{login.signIn()}" />
+         </h:panelGrid>
+        </div>
+        
+        
+        
+        
+         <p:growl id="growl" sticky="true" showDetail="true" life="6000" />
+        
+
+        
+    </h:form>
+    </h:body>
+</html>
+
